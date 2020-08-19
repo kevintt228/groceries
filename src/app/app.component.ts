@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { User } from "./shared/user/user.model";
 
 @Component({
   selector: "my-app",
@@ -6,11 +7,19 @@ import { Component } from "@angular/core";
   styleUrls: ["./login/login.component.scss"]
 })
 export class AppComponent {
+  user: User;
   email = "kelphon@gmail.com";
+  isLoggingIn = false;
+  constructor(){
+    this.user = new User();
+  }
   submit (){
-    alert('sign in with ' + this.email);
+    alert('sign in with ' + this.user.email);
   }
   onShare() {
     alert('share to ...');
+  }
+  toggleDisplay() {
+    this.isLoggingIn = !this.isLoggingIn;
   }
 }

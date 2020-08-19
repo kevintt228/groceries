@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 import { User } from "../shared/user/user.model";
 import { UserService } from "../shared/user/user.service";
 
@@ -13,12 +14,16 @@ export class LoginComponent {
   email = "kelphon@gmail.com";
   isLoggingIn = false;
   constructor( 
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ){
     this.user = new User();
     this.user.email = "kelphon@qq.com";
     this.user.password = "mypassword";
   }
+  /**
+   * 
+   */
   submit (){
     if (this.isLoggingIn){
       this.login();
@@ -26,10 +31,26 @@ export class LoginComponent {
       this.signUp();
     }
   }
-  
-  login(){
-
+  /**
+   * 
+   */
+  login() {
+    this.userService.login(this.user)
+      .subscribe(
+        () => this.router.navigate(["/list"]),
+        (exception) => {
+            if(exception.error && exception.error.description) {
+                alert(exception.error.description);
+            } else {
+                alert(exception)
+            }
+        }
+      );
   }
+
+  /**
+   * 
+   */
   signUp(){
     this.userService.register(this.user)
       .subscribe(

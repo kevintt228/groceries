@@ -8,6 +8,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { LoginComponent } from "./login/login.component";
+import { ListComponent } from "./list/list.component";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { LoginComponent } from "./login/login.component";
   ],
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ListComponent
   ],
   bootstrap: [AppComponent]
 })

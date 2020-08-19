@@ -16,6 +16,8 @@ export class AppComponent {
     private userService: UserService
   ){
     this.user = new User();
+    this.user.email = "kelphon@qq.com";
+    this.user.password = "mypassword";
   }
   submit (){
     if (this.isLoggingIn){

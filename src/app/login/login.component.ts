@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { Page } from "tns-core-modules/ui/page";
 import { User } from "../shared/user/user.model";
 import { UserService } from "../shared/user/user.service";
 
@@ -9,17 +10,21 @@ import { UserService } from "../shared/user/user.service";
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   user: User;
-  email = "kelphon@gmail.com";
+  
   isLoggingIn = false;
   constructor( 
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private page: Page
   ){
     this.user = new User();
     this.user.email = "kelphon@qq.com";
     this.user.password = "mypassword";
+  }
+  ngOnInit(){
+      this.page.actionBarHidden = true;
   }
   /**
    * 

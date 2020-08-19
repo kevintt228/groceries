@@ -6,8 +6,9 @@ import { Component } from "@angular/core";
   styleUrls: ["./login/login.component.scss"]
 })
 export class AppComponent {
+  email = "kelphon@gmail.com";
   submit (){
-    alert('sign in button clicked');
+    alert('sign in with ' + this.email);
   }
   onShare() {
     alert('share to ...');

@@ -4,4 +4,11 @@
     android.systemIcon="ic_menu_share" 
     android.position="actionBar"></ActionItem>
 </ActionBar>
-<Label text="Hello world"></Label>
+
+<GridLayout>
+  <ListView [items]="groceryList">
+    <ng-template let-item="item">
+      <Label [text]="item.name" class="p-15"></Label>
+    </ng-template>
+  </ListView>
+</GridLayout>

@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-    selector: 'selector-name',
+    selector: 'my-app-list',
     templateUrl: 'list.component.html',
-    styleUrls: [ 'list.component.scss']
+    styleUrls: [ 'list.component.scss' ]
 })
 
 export class ListComponent implements OnInit {
-    constructor() { }
+    groceryList: Array<Object>;
+    constructor() {
+        this.groceryList = new Array();
+     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.groceryList.push({name: "Apples"});
+        this.groceryList.push({name: "Bananas"});
+        this.groceryList.push({name: "Oranges"});
+    }
 }
